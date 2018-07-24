@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="component" version="3.1" method="upgrade">
+	<name>com_batbrands</name>
+	<author>Joomla! Project</author>
+	<creationDate>April 2006</creationDate>
+	<copyright>(C) 2005 - 2018 Open Source Matters. All rights reserved.</copyright>
+	<license>GNU General Public License version 2 or later; see LICENSE.txt</license>
+	<authorEmail>admin@joomla.org</authorEmail>
+	<authorUrl>www.joomla.org</authorUrl>
+	<version>3.0.0</version>
+	<description>COM_BATBRANDS_XML_DESCRIPTION</description>
+
+	<install> <!-- Runs on install -->
+		<sql>
+			<file driver="mysql" charset="utf8">sql/install.mysql.utf8.sql</file>
+		</sql>
+	</install>
+	<uninstall> <!-- Runs on uninstall -->
+		<sql>
+			<file driver="mysql" charset="utf8">sql/uninstall.mysql.utf8.sql</file>
+		</sql>
+	</uninstall>
+
+	<files folder="site">
+		<filename>batbrands.php</filename>
+		<filename>controller.php</filename>
+		<filename>router.php</filename>
+		<folder>helpers</folder>
+		<folder>models</folder>
+	</files>
+	<administration>
+		<menu img="class:batbrands">com_batbrands</menu>
+		<submenu>
+			<!--
+				Note that all & must be escaped to &amp; for the file to be valid
+				XML and be parsed by the installer
+			-->
+			<menu
+				link="option=com_batbrands"
+				view="batbrands"
+				img="class:batbrands"
+				alt="Batbrands/Batbrands"
+				>
+				com_batbrands_batbrands
+			</menu>
+			<menu
+				link="option=com_categories&amp;extension=com_batbrands"
+				view="categories"
+				img="class:batbrands-cat"
+				alt="Batbrands/Categories"
+				>
+				com_batbrands_categories
+			</menu>
+			<menu
+				link="option=com_batbrands&amp;view=clients"
+				view="clients"
+				img="class:batbrands-clients"
+				alt="Batbrands/Clients"
+				>
+				com_batbrands_clients
+			</menu>
+			<menu
+				link="option=com_batbrands&amp;view=tracks"
+				view="tracks"
+				img="class:batbrands-tracks"
+				alt="Batbrands/Tracks"
+				>
+				com_batbrands_tracks
+			</menu>
+		</submenu>
+		<files folder="admin">
+			<filename>access.xml</filename>
+			<filename>batbrands.php</filename>
+			<filename>config.xml</filename>
+			<filename>controller.php</filename>
+			<folder>controllers</folder>
+			<folder>helpers</folder>
+			<folder>models</folder>
+			<folder>tables</folder>
+			<folder>views</folder>
+		</files>
+		<languages folder="admin">
+			<language tag="en-GB">language/en-GB.com_batbrands.ini</language>
+			<language tag="en-GB">language/en-GB.com_batbrands.sys.ini</language>
+		</languages>
+	</administration>
+</extension>
