@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<extension type="component" version="3.0" method="upgrade">
+
+<name>COM_BATBRANDS</name>
+<creationDate>2018-07-24</creationDate>
+<author>DST</author>
+<authorEmail>admin@amin.ru</authorEmail>
+<authorUrl>http://1c24.by</authorUrl>
+<copyright>Copyright info</copyright>
+<license>License info</license>
+<version>1.0.0</version>
+<description>COM_BATBRANDS_XML_DESCRIPTION</description>
+
+<scriptfile>install.php</scriptfile>
+
+<install>
+	<sql>
+		<file driver="mysql" charset="utf8">sql/install.mysql.sql</file>
+	</sql>
+</install>
+
+<uninstall>
+	<sql>
+		<file driver="mysql" charset="utf8">sql/uninstall.mysql.sql</file>
+	</sql>
+</uninstall>
+	
+<update>
+	<schemas>
+		<schemapath type="mysql">sql/updates/mysql</schemapath>
+	</schemas>
+</update>
+
+<languages folder="site">
+	<language tag="ru-RU">language/ru-RU/ru-RU.com_batbrands.ini</language>
+	<language tag="en-GB">language/en-GB/en-GB.com_batbrands.ini</language>
+</languages>
+
+<files folder="site">
+	
+	<folder>helpers</folder>
+	<folder>language</folder>
+	<folder>models</folder>
+	
+	<filename>controller.php</filename>
+	<filename>batbrands.php</filename>
+	<filename>router.php</filename>
+	<filename>index.html</filename>
+	
+</files>	
+
+<administration>
+	
+	<menu link="option=com_batbrands">COM_BATBRANDS_BATBRANDS</menu>
+	
+	<submenu>
+		<menu view="batbrands">COM_BATBRANDS_BATBRANDS</menu>
+		<menu link='option=com_categories&amp;extension=com_batbrands'>COM_BATBRANDS_CATEGORIES</menu>
+		<menu view="clients">COM_BATBRANDS_CLIENTS</menu>
+		<menu view="tracks">COM_BATBRANDS_TRACKS</menu>
+	</submenu>
+	
+	<files folder="admin">
+		
+		<folder>controllers</folder>
+		<folder>helpers</folder>
+		<folder>language</folder>
+		<folder>models</folder>
+		<folder>sql</folder>
+		<folder>tables</folder>
+		<folder>views</folder>
+		
+		<filename>access.xml</filename>
+		<filename>batbrands.php</filename>	
+		<filename>batbrands.xml</filename>	
+		<filename>config.xml</filename>
+		<filename>controller.php</filename>
+		<filename>index.html</filename>
+		
+	</files>
+	
+	<languages folder="admin">
+		<language tag="ru-RU">language/ru-RU/ru-RU.com_batbrands.ini</language>
+		<language tag="ru-RU">language/ru-RU/ru-RU.com_batbrands.sys.ini</language>
+		<language tag="en-GB">language/en-GB/en-GB.com_batbrands.ini</language>
+		<language tag="en-GB">language/en-GB/en-GB.com_batbrands.sys.ini</language>
+	</languages>
+	
+</administration>
+	
+</extension>
